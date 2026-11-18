@@ -4,6 +4,8 @@ Natural State Engineering website and GIS field-coordination platform, prepared 
 
 Latest update: [GIS overview, responsive layout and Tyler spelling cleanup](docs/gis-overview-release.md).
 
+Current entry point: [Complete Natural State project review](https://white-sandpiper-603604.hostingersite.com/). See the [unified review release](docs/unified-review-release.md) for navigation, the preserved backup and production boundaries.
+
 ## Source layout
 
 | Folder | Purpose |
