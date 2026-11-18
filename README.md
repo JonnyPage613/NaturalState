@@ -6,6 +6,8 @@ Latest update: [GIS overview, responsive layout and Tyler spelling cleanup](docs
 
 Current entry point: [Complete Natural State project review](https://white-sandpiper-603604.hostingersite.com/). See the [unified review release](docs/unified-review-release.md) for navigation, the preserved backup and production boundaries.
 
+Latest: [MAGI branding and the 18-step guided review](docs/guided-review-release.md).
+
 ## Source layout
 
 | Folder | Purpose |

@@ -21,7 +21,7 @@
   back.href=n===1?'index.html':'proposal.html?chapter='+(n-1);back.textContent=n===1?'← Review home':'← '+chapters[n-2][0];
   next.href=n===7?'platform.html#pricing':'proposal.html?chapter='+(n+1);next.textContent=n===7?'Compare digital service offers ↗':chapters[n][0]+' →';
   document.getElementById('ns-next-description').textContent=n===7?'Next: compare the two digital-service arrangements, then agree the scope and initial assignments.':'Coming next: '+chapters[n][1]+'.';
-  document.title='Natural State proposal · '+chapters[n-1][0];
+  document.title='Natural State proposal · '+chapters[n-1][0];window.dispatchEvent(new CustomEvent('ns-proposal-chapter',{detail:{chapter:n}}));
   if(scroll)document.querySelector('.ns-chapter-tools').scrollIntoView({behavior:'instant',block:'start'});
  }
  document.addEventListener('click',event=>{
