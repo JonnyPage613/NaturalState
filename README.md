@@ -1,6 +1,8 @@
 # Natural State
 
-Natural State Engineering website and GIS field-coordination platform, prepared by Jonny Page for Tylor. The separate Siteworks and digital-service proposals are discussion documents; they do not record an executed agreement.
+Natural State Engineering website and GIS field-coordination platform, prepared by Jonny Page for Tyler. The separate Siteworks and digital-service proposals are discussion documents; they do not record an executed agreement.
+
+Latest update: [GIS overview, responsive layout and Tyler spelling cleanup](docs/gis-overview-release.md).
 
 ## Source layout
 

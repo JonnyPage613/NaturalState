@@ -11,3 +11,5 @@
 No public GIS service is represented as having guaranteed uptime, unlimited capacity, complete parcel coverage or guaranteed engineering suitability. Public lookup calls share the queried location with the relevant provider. A customer privacy notice should describe this before production launch.
 
 Docker images are downloaded only when you run Docker Compose: official PHP, PostGIS and Mailpit distributions. Review their current licenses and operational requirements. The supplied Compose setup is local-only; its test credentials must not be reused for a public VPS deployment.
+
+- GIS overview typography: Cinzel and Montserrat, SIL Open Font License 1.1. Self-hosted Latin font assets and their OFL texts are in `public/assets/fonts/`. Source: https://github.com/google/fonts .

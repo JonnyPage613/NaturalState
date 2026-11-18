@@ -1,6 +1,6 @@
 # Release boundaries and deployment
 
-Prepared November 18, 2026. Names are confirmed as Jonny Page and Tylor.
+Prepared November 18, 2026. Names are confirmed as Jonny Page and Tyler.
 
 ## Working interfaces and backend source
 

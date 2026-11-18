@@ -1,0 +1,2 @@
+# Keep bundled upstream font licenses verbatim, including their line whitespace.
+**/assets/fonts/*-OFL.txt -whitespace
