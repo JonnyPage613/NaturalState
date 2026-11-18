@@ -1,0 +1,1 @@
+AI-generated service illustrations created November 15, 2026 with the built-in image generator. Not actual Natural State projects or personnel. Original PNGs and complete prompts are saved in the delivered Natural State service-images folder. Images are used as illustrations, not technical construction documents.

@@ -1,0 +1,11 @@
+<?php
+if(PHP_SAPI!=='cli')exit;
+$root=dirname(__DIR__);$local=$root.'/storage/local';@mkdir($local,0700,true);$cfg=require $root.'/config/config.example.php';$cfg['dsn']='sqlite:'.$local.'/pilot.sqlite';$cfg['db_user']=$cfg['db_password']='';$cfg['base_url']='http://localhost:8080';$cfg['storage']=$local;$cfg['smtp_host']='';$cfg['staff_alert']='operations@naturalstate.test';
+$file=$local.'/config.php';file_put_contents($file,"<?php\nreturn ".var_export($cfg,true).";\n");chmod($file,0600);putenv('APP_CONFIG='.$file);
+require $root.'/src/bootstrap.php';
+if(($argv[1]??'')==='inbox'){$m=query('SELECT recipient,subject,body FROM outbox ORDER BY next_attempt')->fetchAll();foreach($m as $x)echo "\nTo: ".$x['recipient']."\n".$x['subject']."\n".$x['body']."\n";exit;}
+$php=escapeshellarg(PHP_BINARY);passthru($php.' '.escapeshellarg($root.'/bin/setup.php'));
+foreach(['operations@naturalstate.test'=>'operations','engineer@naturalstate.test'=>'engineer'] as $email=>$role)if(!query('SELECT id FROM users WHERE email=?',[$email])->fetchColumn())query('INSERT INTO users (id,email,role,active) VALUES (?,?,?,1)',[uid(),$email,$role]);
+if(!query('SELECT COUNT(*) FROM projects')->fetchColumn()){$batch=uid();$contact=['name'=>'Fictional builder demo','email'=>'builder@example.test','phone'=>'','role'=>'Builder / developer','service'=>'Soil & site evaluation','notes'=>'Fictional sample records for partner review.','deadline'=>''];query('INSERT INTO batches (id,request_key,contact,created) VALUES (?,?,?,?)',[$batch,bin2hex(random_bytes(24)),json_encode($contact),time()]);foreach(['Sample wooded lot','Sample home site','Sample builder lot'] as $i=>$name){$id=uid();$payload=['property'=>$name,'county'=>'Benton','apn'=>'','bedrooms'=>'Unknown','water'=>'Unknown','lat'=>36.3+$i*.005,'lng'=>-94.1];query('INSERT INTO projects (id,batch_id,payload,stage,version,created) VALUES (?,?,?,?,1,?)',[$id,$batch,json_encode($payload),'Received',time()]);event($id,'local demo','fictional sample',[]);}}
+echo "\nLOCAL FICTIONAL-DATA PILOT\nOpen http://localhost:8080\nStaff: operations@naturalstate.test or engineer@naturalstate.test\nAfter requesting a sign-in link, run php bin/local.php inbox in another terminal.\nNo email is sent in this SQLite preview. Control+C stops the server.\n\n";
+passthru($php.' -S localhost:8080 -t '.escapeshellarg($root.'/public'));

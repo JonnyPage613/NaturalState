@@ -1,0 +1,51 @@
+services:
+  app:
+    build: .
+    ports: ["127.0.0.1:8080:80"]
+    environment:
+      DB_DSN: pgsql:host=db;port=5432;dbname=naturalstate
+      DB_USER: naturalstate
+      DB_PASSWORD: local-test-only
+      APP_URL: http://localhost:8080
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      SMTP_SECURITY: ""
+      MAIL_FROM: hello@naturalstate.test
+      STAFF_ALERT: operations@naturalstate.test
+    volumes: ["uploads:/var/www/html/storage"]
+    depends_on:
+      db: {condition: service_healthy}
+  db:
+    image: postgis/postgis:17-3.5
+    platform: linux/amd64
+    environment:
+      POSTGRES_DB: naturalstate
+      POSTGRES_USER: naturalstate
+      POSTGRES_PASSWORD: local-test-only
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U naturalstate"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes: ["postgres:/var/lib/postgresql/data"]
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports: ["127.0.0.1:8025:8025"]
+  mailworker:
+    build: .
+    command: ["sh", "-c", "while true; do php bin/mail-worker.php; sleep 10; done"]
+    environment:
+      DB_DSN: pgsql:host=db;port=5432;dbname=naturalstate
+      DB_USER: naturalstate
+      DB_PASSWORD: local-test-only
+      APP_URL: http://localhost:8080
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      SMTP_SECURITY: ""
+      MAIL_FROM: hello@naturalstate.test
+      STAFF_ALERT: operations@naturalstate.test
+    volumes: ["uploads:/var/www/html/storage"]
+    depends_on: [app, mailpit]
+volumes:
+  postgres:
+  uploads:

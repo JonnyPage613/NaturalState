@@ -1,0 +1,50 @@
+[
+  {
+    "property": "20201 East Hwy. 12, Rogers, AR 72756",
+    "address": "20201 East Hwy. 12, Rogers, AR 72756",
+    "location_name": "Hobbs State Park visitor center",
+    "county": "Benton",
+    "lat": 36.284877,
+    "lng": -93.93883,
+    "bedrooms": "3",
+    "sqft": "2,100",
+    "water": "Private well",
+    "well_distance": "140 ft",
+    "well_notes": "Simulated work-order input; not an observed condition at this public location.",
+    "source_url": "https://www.arkansas.com/state-parks/explore/parks/hobbs-state-park-conservation-area",
+    "location_verified": "2026-11-15",
+    "location_basis": "Address and map pin published by Arkansas State Parks. Work-order requirements are simulated."
+  },
+  {
+    "property": "33424 Spur 23, Huntsville, AR 72740",
+    "address": "33424 Spur 23, Huntsville, AR 72740",
+    "location_name": "Withrow Springs State Park",
+    "county": "Madison",
+    "lat": 36.15463,
+    "lng": -93.736269,
+    "bedrooms": "4",
+    "sqft": "2,600",
+    "water": "Public water",
+    "well_distance": "Not reported",
+    "well_notes": "Simulated work-order input; not an observed condition at this public location.",
+    "source_url": "https://www.arkansas.com/state-parks/explore/parks/withrow-springs-state-park",
+    "location_verified": "2026-11-15",
+    "location_basis": "Address and map pin published by Arkansas State Parks. Work-order requirements are simulated."
+  },
+  {
+    "property": "153 Dam Overlook Lane, Bull Shoals, AR 72619",
+    "address": "153 Dam Overlook Lane, Bull Shoals, AR 72619",
+    "location_name": "Bull Shoals visitor center",
+    "county": "Marion",
+    "lat": 36.369634,
+    "lng": -92.576798,
+    "bedrooms": "2",
+    "sqft": "1,600",
+    "water": "Private well",
+    "well_distance": "180 ft",
+    "well_notes": "Simulated work-order input; not an observed condition at this public location.",
+    "source_url": "https://www.arkansas.com/state-parks/explore/parks/bull-shoals-white-river-state-park",
+    "location_verified": "2026-11-15",
+    "location_basis": "Address and map pin published by Arkansas State Parks. Work-order requirements are simulated."
+  }
+]

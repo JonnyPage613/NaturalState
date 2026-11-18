@@ -1,0 +1,17 @@
+# Local/private configuration and runtime customer records
+**/config/config.php
+.env
+.env.*
+!.env.example
+**/storage/**
+!**/storage/.gitkeep
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*.pem
+*.key
+.DS_Store
+__pycache__/
+**/tests/*results.json
+**/tests/results.json
